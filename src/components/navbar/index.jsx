@@ -4,20 +4,22 @@ export const Navbar = () => (
   <>
     <div className="navbar">
       <div className="logo-img">
-        <img src="images/logo.svg" alt="shall Unite logo" />
+        <img src="images/logo.svg" />
       </div>
       <div className="search-bar">
-        <input type="text" name="query" placeholder="Search keyword... " />
+        <input
+          type="text"
+          name="query-navbar"
+          placeholder="Search keyword... "
+        />
         <button>
-          <img
-            src="images/navbar-assets/icon-search.svg"
-            alt="shall unite logo"
-          />
+          <img src="images/navbar-assets/icon-search.svg" />
         </button>
       </div>
       <div className="header-user-actions">
         <div className="user-profile">
           <img src="images/navbar-assets/profile.svg"></img>
+          <p>hello</p>
         </div>
         <div className="seperate-line"></div>
         <div className="header-actions">
@@ -79,10 +81,15 @@ export const Navbar = () => (
         display: flex;
         justify-content: space-between;
         align-items: center;
-        //width: 100%;
       }
       .user-profile {
         display: flex;
+      }
+      .user-profile p {
+        position: absolute;
+        font-size: 15px;
+        right: 24%;
+        color: #3e4559;
       }
       .seperate-line {
         display: flex;
