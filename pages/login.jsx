@@ -5,7 +5,7 @@ import { deepclone } from "../src/services/util";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
   });
 
   const handleLogin = (e) => {
@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleInput = (e) => {
     const newFormData = deepclone(formData);
-    formData[e.target.name] = e.target.value;
+    newFormData[e.target.name] = e.target.value;
     setFormData(newFormData);
   };
 
@@ -30,6 +30,8 @@ const Login = () => {
             placeholder="username"
             name="username"
             autoComplete={false}
+            value={formData.username}
+            onChange={handleInput}
           />
           <button>Let's Go</button>
         </form>
@@ -53,7 +55,8 @@ const Login = () => {
           }
 
           form {
-            width: 445px;
+            padding-top: 25vh;
+            min-width: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
