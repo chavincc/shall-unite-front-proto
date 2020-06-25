@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       <style jsx global>
         {`
           * {
-            font-family: IBM Plex Sans Arabic;
+            font-family: IBM Plex Sans;
           }
 
           body {

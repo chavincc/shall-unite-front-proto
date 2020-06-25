@@ -1,8 +1,11 @@
 import axios from "axios";
 
-export const loginAPI = async ({ username }) => {
+export const loginAPI = async (formData) => {
   try {
-    await axios.post(`${process.env.ENDPOINT}/auth/login`, { username });
+    await axios.post(`${process.env.ENDPOINT}/auth/login`, {
+      username: formData.username,
+    });
+
     return {
       error: false,
     };

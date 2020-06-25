@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import { deepclone } from "../src/services/util";
@@ -15,7 +15,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const response = await loginAPI(formData.username);
+    const response = await loginAPI(formData);
     if (!response.error) {
       router.push("/chat");
     }
