@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import { Navbar } from "../src/components";
 
 const Chat = () => {
-  return <Navbar />;
+  const [username, setUsername] = useState(null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    setUsername(router.query.username);
+  }, []);
+
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 };
 
 export default Chat;

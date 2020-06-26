@@ -16,8 +16,9 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     const response = await loginAPI(formData);
+    console.log(response);
     if (!response.error) {
-      router.push("/chat");
+      router.push(`/chat?username=${response.username}`);
     }
     setLoading(false);
   };
