@@ -5,6 +5,7 @@ const ENDPOINT = process.env.ENDPOINT || "http://127.0.0.1:4001";
 
 import { Navbar } from "../src/components";
 import { getUsers } from "../src/services/api";
+import { SideBar } from "../src/components/side-bar";
 
 const Chat = () => {
   const [username, setUsername] = useState(null);
@@ -41,7 +42,7 @@ const Chat = () => {
   return username ? (
     <>
       <Navbar username={username} />
-      {users.map((user) => user.isOnline && <p>{user.username}</p>)}
+      <SideBar />
     </>
   ) : (
     <>"loading.."</>
