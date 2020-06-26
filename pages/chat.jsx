@@ -5,7 +5,6 @@ import { Navbar } from "../src/components";
 import { SideBar } from "../src/components/side-bar";
 
 const Chat = () => {
-
   const [username, setUsername] = useState(null);
 
   const router = useRouter();
