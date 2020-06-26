@@ -1,27 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 import { deepclone } from "../src/services/util";
+import { loginAPI } from "../src/services/api";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const router = useRouter();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    const response = await loginAPI(formData);
+    if (!response.error) {
+      router.push("/chat");
+    }
+    setLoading(false);
   };
 
   const handleInput = (e) => {
     const newFormData = deepclone(formData);
-    formData[e.target.name] = e.target.value;
+    newFormData[e.target.name] = e.target.value;
     setFormData(newFormData);
   };
 
   return (
     <section id="login">
       <div className="login-container">
-        <form onSubmit={handleLogin}>
+        <form>
           <div className="logo">
             <img src="images/logo.svg" alt="shall unite logo" />
           </div>
@@ -29,12 +39,17 @@ const Login = () => {
             type="text"
             placeholder="username"
             name="username"
-            autoComplete={false}
+            autoComplete="off"
+            value={formData.username}
+            onChange={handleInput}
+            disabled={loading}
           />
-          <button>Let's Go</button>
+          <button type="submit" onClick={handleLogin}>
+            Let's Go
+          </button>
         </form>
         <img
-          class="login-main-img"
+          className="login-main-img"
           src="images/home-graphic.jpg"
           alt="vector of people"
         />
@@ -53,7 +68,8 @@ const Login = () => {
           }
 
           form {
-            width: 445px;
+            padding-top: 25vh;
+            min-width: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
