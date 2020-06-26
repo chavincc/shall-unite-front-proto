@@ -7,11 +7,7 @@ export const Navbar = () => (
         <img src="images/logo.svg" />
       </div>
       <div className="search-bar">
-        <input
-          type="text"
-          name="query-navbar"
-          placeholder="Search keyword... "
-        />
+        <input type="text" name="query-navbar" placeholder="Search" />
         <button>
           <img src="images/navbar-assets/icon-search.svg" />
         </button>
@@ -39,6 +35,7 @@ export const Navbar = () => (
     <style jsx>{`
       .navbar {
         width: 100%;
+        height: 10vh;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
