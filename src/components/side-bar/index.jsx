@@ -1,34 +1,34 @@
 import React from "react";
 import { UserChat } from "../side-bar/user-chat";
 
-const chatDetails = [
-  {
-    id: 1,
-    profilePic: "images/profile-pic.svg",
-    username: "hello kos",
-    messageTime: "15:30 PM",
-    isOnline: true,
-    message: "Yeah!",
-  },
-  {
-    id: 2,
-    profilePic: "images/profile-pic.svg",
-    username: "hihi kos",
-    messageTime: "20 JUN",
-    isOnline: false,
-    message: "Counting your chicken before..",
-  },
-  {
-    id: 3,
-    profilePic: "images/profile-pic.svg",
-    username: "yoyo kos",
-    messageTime: "15 JAN",
-    isOnline: false,
-    message: "Do You Think Motivational Thoughts…",
-  },
-];
+// const chatDetails = [
+//   {
+//     id: 1,
+//     profilePic: "images/profile-pic.svg",
+//     username: "hello kos",
+//     messageTime: "15:30 PM",
+//     isOnline: true,
+//     message: "Yeah!",
+//   },
+//   {
+//     id: 2,
+//     profilePic: "images/profile-pic.svg",
+//     username: "hihi kos",
+//     messageTime: "20 JUN",
+//     isOnline: false,
+//     message: "Counting your chicken before..",
+//   },
+//   {
+//     id: 3,
+//     profilePic: "images/profile-pic.svg",
+//     username: "yoyo kos",
+//     messageTime: "15 JAN",
+//     isOnline: false,
+//     message: "Do You Think Motivational Thoughts…",
+//   },
+// ];
 
-export const SideBar = () => (
+export const SideBar = ({ users }) => (
   <>
     <div className="side-bar-component">
       <div className="search-container">
@@ -43,7 +43,7 @@ export const SideBar = () => (
       </div>
 
       <div className="chat-history">
-        {chatDetails.map((chatDetail) => {
+        {users.map((chatDetail) => {
           return <UserChat chatDetail={chatDetail} key={chatDetail.id} />;
         })}
       </div>

@@ -7,14 +7,14 @@ export const UserChat = ({
     <div className="user-chat-container">
       <div className="first-row">
         <div className="profile-pic">
-          <img src={profilePic} />
+          <img src={profilePic || "images/profile-pic.svg"} />
           {isOnline && <div className="circle-status"></div>}
         </div>
         <p id="username"> {username}</p>
-        <p id="message-time"> {messageTime}</p>
+        <p id="message-time"> {messageTime || "13:45"}</p>
       </div>
       <div className="latest-message">
-        <p>{message} </p>
+        <p>{message || "lorem ipsum sample text"}</p>
       </div>
     </div>
     <style jsx>

@@ -42,7 +42,7 @@ const Chat = () => {
   return username ? (
     <>
       <Navbar username={username} />
-      <SideBar />
+      <SideBar users={users} />
     </>
   ) : (
     <>"loading.."</>
