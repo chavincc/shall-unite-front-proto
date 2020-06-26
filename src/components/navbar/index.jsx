@@ -25,7 +25,7 @@ export const Navbar = () => (
           <a href="#" target="_blank">
             <img src="images/navbar-assets/icon-chat.svg" />
           </a>
-          <a class="no-padding" href="#" target="_blank">
+          <a className="no-padding" href="#" target="_blank">
             <img src="images/navbar-assets/icon-noti.svg" />
           </a>
         </div>

@@ -1,14 +1,45 @@
 import React from "react";
-export const UserChat = () => (
+
+const chatDetails = [
+  {
+    id: 1,
+    profilePic: "images/profile-pic.svg",
+    username: "hello kos",
+    messageTime: "15:30 PM",
+    online: true,
+    message: "Yeah!",
+  },
+  {
+    id: 2,
+    profilePic: "images/profile-pic.svg",
+    username: "hihi kos",
+    messageTime: "20 JUN",
+    online: false,
+    message: "Counting your chicken before..",
+  },
+  {
+    id: 3,
+    profilePic: "images/profile-pic.svg",
+    username: "yoyo kos",
+    messageTime: "15 JAN",
+    online: false,
+    message: "Do You Think Motivational Thoughts…",
+  },
+];
+
+export const UserChat = (props) => (
   <>
     <div className="user-chat-container">
       <div className="first-row">
-        <img src="images/profile-pic.svg" />
-        <p id="username"> hello kos</p>
-        <p id="message-time"> 13:30 PM</p>
+        <div className="profile-pic">
+          <img src={props.chatDetail.profilePic} />
+          {props.chatDetail.online && <div className="circle-status"></div>}
+        </div>
+        <p id="username"> {props.chatDetail.username}</p>
+        <p id="message-time"> {props.chatDetail.messageTime}</p>
       </div>
       <div className="latest-message">
-        <p> Yeah! </p>
+        <p>{props.chatDetail.message} </p>
       </div>
     </div>
     <style jsx>
@@ -16,7 +47,6 @@ export const UserChat = () => (
         .user-chat-container {
           display: flex;
           flex-direction: column;
-          justify-content: space-around;
           height: 117px;
           border: 1px solid #e5e6ef;
           border-left: none;
@@ -25,18 +55,30 @@ export const UserChat = () => (
         }
         .first-row {
           display: flex;
-          justify-content: space-between;
           padding: 0 20px 0 30px;
           align-items: center;
+          justify-content: space-between;
+        }
+        .circle-status {
+          position: absolute;
+          width: 10px;
+          height: 9px;
+          right: 0;
+          bottom: 0;
+          background: #9be24f;
+          border-radius: 50%;
+          border: 3px solid #ffffff;
+        }
+        .profile-pic {
+          position: relative;
         }
         .first-row #username {
           display: flex;
-          padding: 0 10px 0 15px;
+          margin: 0px;
           color: #1e1e1e;
+          width: 50%;
         }
         .first-row #message-time {
-          display: flex;
-          justify-self: end;
           color: #bebbc6;
         }
         .latest-message {
@@ -65,7 +107,9 @@ export const SideBar = () => (
       </div>
 
       <div className="chat-history">
-        <UserChat />
+        {chatDetails.map((chatDetail) => {
+          return <UserChat chatDetail={chatDetail} key={chatDetail.id} />;
+        })}
       </div>
     </div>
     <style jsx>{`
@@ -86,6 +130,7 @@ export const SideBar = () => (
       .search-container button {
         border: none;
         background-color: transparent;
+        outline: none;
       }
       .chat-history {
         overflow: scroll;
