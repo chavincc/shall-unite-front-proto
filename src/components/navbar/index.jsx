@@ -7,11 +7,7 @@ export const Navbar = ({ username }) => (
         <img src="images/logo.svg" />
       </div>
       <div className="search-bar">
-        <input
-          type="text"
-          name="query-navbar"
-          placeholder="Search keyword... "
-        />
+        <input type="text" name="query-navbar" placeholder="Search" />
         <button>
           <img src="images/navbar-assets/icon-search.svg" />
         </button>
@@ -29,7 +25,7 @@ export const Navbar = ({ username }) => (
           <a href="#" target="_blank">
             <img src="images/navbar-assets/icon-chat.svg" />
           </a>
-          <a class="no-padding" href="#" target="_blank">
+          <a className="no-padding" href="#" target="_blank">
             <img src="images/navbar-assets/icon-noti.svg" />
           </a>
         </div>
@@ -39,6 +35,7 @@ export const Navbar = ({ username }) => (
     <style jsx>{`
       .navbar {
         width: 100%;
+        height: 10vh;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
