@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Navbar = () => (
+export const Navbar = ({ username }) => (
   <>
     <div className="navbar">
       <div className="logo-img">
@@ -19,7 +19,7 @@ export const Navbar = () => (
       <div className="header-user-actions">
         <div className="user-profile">
           <img src="images/navbar-assets/profile.svg"></img>
-          <p>hello</p>
+          <p>{username}</p>
         </div>
         <div className="seperate-line"></div>
         <div className="header-actions">
